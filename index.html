@@ -598,6 +598,87 @@
 				text-transform: uppercase;
 			}
 
+			/* Featured projects: portfolio-style cards with icons, badges, and clearer actions. */
+			.project-card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.9rem;
+				min-height: 100%;
+			}
+
+			.project-top {
+				align-items: center;
+				display: flex;
+				gap: 0.85rem;
+			}
+
+			.project-icon {
+				align-items: center;
+				background: linear-gradient(135deg, #fff1f6, #eef6ff);
+				border: 1px solid rgba(124, 143, 214, 0.14);
+				border-radius: 16px;
+				box-shadow: 0 10px 24px rgba(92, 87, 128, 0.08);
+				color: var(--accent-dark);
+				display: inline-flex;
+				flex: 0 0 auto;
+				font-size: 1.2rem;
+				height: 3rem;
+				justify-content: center;
+				width: 3rem;
+			}
+
+			.project-card h3 {
+				margin-bottom: 0;
+			}
+
+			.badge-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				list-style: none;
+				margin: 0.15rem 0 0;
+				padding: 0;
+			}
+
+			.badge-list li {
+				background: rgba(255, 255, 255, 0.72);
+				border: 1px solid rgba(124, 143, 214, 0.16);
+				border-radius: 999px;
+				color: #4b567f;
+				font-size: 0.74rem;
+				font-weight: 800;
+				padding: 0.26rem 0.58rem;
+			}
+
+			.project-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.55rem;
+				margin-top: auto;
+			}
+
+			.project-actions a {
+				align-items: center;
+				background: rgba(255, 255, 255, 0.72);
+				border: 1px solid rgba(124, 143, 214, 0.18);
+				border-radius: 999px;
+				color: #3f485f;
+				display: inline-flex;
+				font-size: 0.78rem;
+				font-weight: 900;
+				gap: 0.38rem;
+				padding: 0.48rem 0.72rem;
+				text-transform: uppercase;
+				transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+			}
+
+			.project-actions a:hover {
+				background: #fff7fb;
+				border-color: rgba(244, 167, 187, 0.42);
+				color: var(--accent-dark);
+				transform: translateY(-2px);
+			}
+
 			/* Tech stack section: compact icon cards inspired by modern developer portfolios. */
 			.skill-showcase {
 				display: grid;
@@ -1009,62 +1090,108 @@
 					<div class="section-head reveal">
 						<p class="kicker">Featured Projects</p>
 						<h2>Selected work from Year 1 to Year 3.</h2>
-						<p>These featured projects show my growth from programming fundamentals to database design, web systems, mobile application development, analytics, and data engineering solutions.</p>
+						<p>A collection of academic and industry-oriented projects that showcase my skills in software development, data engineering, analytics, and problem solving.</p>
 					</div>
 					<div class="grid two">
-						<article class="card lavender reveal">
-							<span class="meta">Year 3 - Application Development</span>
-							<h3>TVETMARA Student Attendance Management System</h3>
+						<article class="card lavender project-card reveal">
+							<div class="project-top">
+								<span class="project-icon"><i class="fas fa-user-check" aria-hidden="true"></i></span>
+								<div>
+									<span class="meta">Application Development</span>
+									<h3>TVETMARA Student Attendance Management System</h3>
+								</div>
+							</div>
 							<p>Developed a mobile attendance management application using Flutter and Firebase concepts, covering attendance recording, discipline reporting, timetable management, and user management.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT/Project">Project Folder</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT">Course Folder</a></li>
+							<ul class="badge-list">
+								<li>Flutter</li>
+								<li>Firebase</li>
+								<li>Mobile App</li>
+								<li>UX Flow</li>
 							</ul>
+							<div class="project-actions">
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT/Project"><i class="fab fa-github"></i> GitHub</a>
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT/Project/readme.md"><i class="fas fa-file-alt"></i> Docs</a>
+							</div>
 						</article>
-						<article class="card pink reveal">
-							<span class="meta">Year 2 - System Development</span>
-							<h3>KADA eServe</h3>
-							<p>Built a cooperative member and loan management web system with registration, application status, reporting, financial statements, and admin management modules.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/SYSTEM%20DEVELOPMENT%20TECHNOLOGY/KADA%20Project">Project Folder</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/SYSTEM%20DEVELOPMENT%20TECHNOLOGY/KADA%20Project/Code">Source Code</a></li>
-							</ul>
-						</article>
-						<article class="card blue reveal">
-							<span class="meta">Year 3 - Special Topic</span>
-							<h3>PPG Recoverable Assets and Inventory Risk Management</h3>
+						<article class="card blue project-card reveal">
+							<div class="project-top">
+								<span class="project-icon"><i class="fas fa-boxes" aria-hidden="true"></i></span>
+								<div>
+									<span class="meta">Industry-Oriented Analytics</span>
+									<h3>PPG Recoverable Assets &amp; Inventory Risk Management</h3>
+								</div>
+							</div>
 							<p>Designed analytics outputs for inventory health, shortage monitoring, recoverable assets, and operational risk using data modelling and dashboard-ready structures.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project/PPG%20PROJECT%20DOCUMENTATION.pdf">Documentation</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project">Project Folder</a></li>
+							<ul class="badge-list">
+								<li>Data Modelling</li>
+								<li>Inventory Analytics</li>
+								<li>Risk Insights</li>
+								<li>Power BI Ready</li>
 							</ul>
+							<div class="project-actions">
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project"><i class="fab fa-github"></i> GitHub</a>
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project/PPG%20PROJECT%20DOCUMENTATION.pdf"><i class="fas fa-file-pdf"></i> Docs</a>
+							</div>
 						</article>
-						<article class="card mint reveal">
-							<span class="meta">Year 2 - Database</span>
-							<h3>Technicrab Database Design</h3>
-							<p>Completed database project documentation including proposal, ERD, conceptual design, and logical design to strengthen data modelling and normalization skills.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/DATABASE%20(WBL)/Project">Project Folder</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/DATABASE%20(WBL)">Course Folder</a></li>
+						<article class="card pink project-card reveal">
+							<div class="project-top">
+								<span class="project-icon"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i></span>
+								<div>
+									<span class="meta">Web System Development</span>
+									<h3>KADA eServe</h3>
+								</div>
+							</div>
+							<p>Built a cooperative member and loan management web system with registration, application status, reporting, financial statements, and admin management modules.</p>
+							<ul class="badge-list">
+								<li>PHP</li>
+								<li>MySQL</li>
+								<li>Web System</li>
+								<li>Reporting</li>
 							</ul>
+							<div class="project-actions">
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/SYSTEM%20DEVELOPMENT%20TECHNOLOGY/KADA%20Project/Code"><i class="fab fa-github"></i> Code</a>
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%202/Sem%201/SYSTEM%20DEVELOPMENT%20TECHNOLOGY/KADA%20Project/SDT%20Final%20Report-Technicrab_compressed.pdf"><i class="fas fa-file-pdf"></i> Docs</a>
+							</div>
 						</article>
-						<article class="card cream reveal">
-							<span class="meta">Year 3 - High Performance Data Processing</span>
-							<h3>Data Processing Optimization Project</h3>
+						<article class="card mint project-card reveal">
+							<div class="project-top">
+								<span class="project-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></span>
+								<div>
+									<span class="meta">High Performance Data Processing</span>
+									<h3>Data Processing Optimization Project</h3>
+								</div>
+							</div>
 							<p>Processed and optimized larger datasets through notebooks for crawling, cleaning, and pipeline optimization, with attention to performance and scalability.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING/Project%201">Project Folder</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING">Course Folder</a></li>
+							<ul class="badge-list">
+								<li>Python</li>
+								<li>Notebook</li>
+								<li>Data Cleaning</li>
+								<li>Optimization</li>
 							</ul>
+							<div class="project-actions">
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING/Project%201"><i class="fab fa-github"></i> GitHub</a>
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING/Project%201/HPDP_Project1_Assignment_Brief.pdf"><i class="fas fa-file-pdf"></i> Docs</a>
+							</div>
 						</article>
-						<article class="card lavender reveal">
-							<span class="meta">Year 1 - Programming Foundation</span>
-							<h3>Programming Technique I Assignments</h3>
-							<p>Built foundational programming skills through C++ assignments, lab exercises, arrays, functions, file operations, and structured problem-solving practice.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%201/Sem%201/SECJ1013%20PROGRAMMING%20TECHNIQUE%20I/Assignment">Assignments</a></li>
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%201/Sem%201/SECJ1013%20PROGRAMMING%20TECHNIQUE%20I">Course Folder</a></li>
+						<article class="card cream project-card reveal">
+							<div class="project-top">
+								<span class="project-icon"><i class="fas fa-robot" aria-hidden="true"></i></span>
+								<div>
+									<span class="meta">AI-Assisted Data Engineering</span>
+									<h3>AI-Assisted Data Engineering Pipeline</h3>
+								</div>
+							</div>
+							<p>Explored how AI tools can support data engineering workflows, including pipeline planning, transformation logic, and documentation for scalable data solutions.</p>
+							<ul class="badge-list">
+								<li>AI Tools</li>
+								<li>Pipeline Design</li>
+								<li>Data Engineering</li>
+								<li>Documentation</li>
 							</ul>
+							<div class="project-actions">
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Tutorial"><i class="fab fa-github"></i> GitHub</a>
+								<a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Tutorial/Tutorial%204%20Claude%20to%20pipelines.docx"><i class="fas fa-file-alt"></i> Docs</a>
+							</div>
 						</article>
 					</div>
 				</div>
