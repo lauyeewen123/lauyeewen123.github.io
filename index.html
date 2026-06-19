@@ -129,14 +129,19 @@
 			}
 
 			.hero {
-				padding: 5.8rem 0 4.2rem;
+				padding: 4.8rem 0 3.4rem;
 			}
 
+			/* Homepage hero layout: compact, modern introduction with natural photo alignment. */
 			.hero-grid {
 				display: grid;
 				grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.55fr);
 				gap: clamp(2rem, 5vw, 4rem);
 				align-items: center;
+			}
+
+			.hero-text {
+				max-width: 720px;
 			}
 
 			.kicker {
@@ -240,9 +245,27 @@
 
 			.hero-copy {
 				color: var(--muted);
-				font-size: 1.14rem;
-				margin: 1.2rem 0 1.7rem;
-				max-width: 680px;
+				font-size: 1.08rem;
+				margin: 1.1rem 0 0;
+				max-width: 650px;
+			}
+
+			.hero-role {
+				color: #58627f;
+				font-size: clamp(1rem, 2vw, 1.25rem);
+				font-weight: 700;
+				margin: 1.1rem 0 0;
+			}
+
+			.hero-tagline {
+				background: rgba(255, 255, 255, 0.55);
+				border: 1px solid rgba(234, 223, 236, 0.85);
+				border-radius: 16px;
+				color: #5f687a;
+				font-size: 1rem;
+				margin: 1rem 0 0;
+				max-width: 660px;
+				padding: 0.9rem 1rem;
 			}
 
 			.actions {
@@ -260,13 +283,13 @@
 				box-shadow: 0 12px 28px rgba(124, 143, 214, 0.22);
 				cursor: pointer;
 				display: inline-flex;
-				font-size: 0.83rem;
+				font-size: 0.8rem;
 				font-weight: 800;
 				gap: 0.45rem;
 				letter-spacing: 0.05em;
-				min-height: 2.8rem;
+				min-height: 2.65rem;
 				overflow: hidden;
-				padding: 0 1.05rem;
+				padding: 0 1.15rem;
 				position: relative;
 				text-transform: uppercase;
 				transform: translateY(0);
@@ -331,15 +354,15 @@
 				border: 0;
 				border-radius: 18px;
 				justify-self: end;
-				max-width: 310px;
+				max-width: 285px;
 				padding: 0;
 			}
 
 			.profile-photo img {
 				aspect-ratio: 4 / 5;
-				border: 1px solid rgba(234, 223, 236, 0.9);
+				border: 1px solid rgba(234, 223, 236, 0.72);
 				border-radius: 16px;
-				box-shadow: 0 16px 34px rgba(92, 87, 128, 0.14);
+				box-shadow: 0 14px 32px rgba(92, 87, 128, 0.12);
 				display: block;
 				height: auto;
 				object-fit: cover;
@@ -349,7 +372,7 @@
 			}
 
 			.profile-photo img:hover {
-				box-shadow: 0 18px 40px rgba(92, 87, 128, 0.18);
+				box-shadow: 0 18px 38px rgba(92, 87, 128, 0.16);
 				transform: translateY(-2px);
 			}
 
@@ -369,6 +392,24 @@
 			.section-head p {
 				color: var(--muted);
 				margin: 0;
+			}
+
+			.about-card {
+				background: rgba(255, 255, 255, 0.78);
+				border: 1px solid rgba(234, 223, 236, 0.9);
+				border-radius: 20px;
+				box-shadow: var(--shadow);
+				max-width: 980px;
+				padding: clamp(1.3rem, 3vw, 2rem);
+			}
+
+			.about-card p {
+				color: var(--muted);
+				margin: 0 0 1rem;
+			}
+
+			.about-card p:last-child {
+				margin-bottom: 0;
 			}
 
 			.grid {
@@ -544,6 +585,11 @@
 					padding-top: 3.4rem;
 				}
 
+				.hero-copy,
+				.hero-tagline {
+					font-size: 0.98rem;
+				}
+
 				h1 {
 					font-size: clamp(2rem, 14vw, 2.5rem);
 				}
@@ -590,12 +636,14 @@
 		<main id="home">
 			<section class="hero">
 				<div class="container hero-grid">
-					<div>
+					<div class="hero-text">
 						<p class="kicker">E-Portfolio</p>
 						<h1 class="animated-name" title="Hover or tap my name">
 							<span class="name-text">Lau Yee Wen</span>
 						</h1>
-						<p class="hero-copy">Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia, showcasing coursework, systems, data projects, reports, and technical growth from Year 1 to Year 3.</p>
+						<p class="hero-role">Data Engineering Student | Universiti Teknologi Malaysia</p>
+						<p class="hero-tagline">Exploring data, technology, and innovation through continuous learning and hands-on projects.</p>
+						<p class="hero-copy">This e-portfolio highlights my academic journey, coursework, projects, achievements, and experiences throughout my years at UTM.</p>
 						<div class="actions">
 							<a class="button primary" href="#projects"><i class="fas fa-folder-open"></i> View Work</a>
 							<a class="button secondary" href="#coursework"><i class="fas fa-book-open"></i> Coursework</a>
@@ -611,21 +659,14 @@
 				<div class="container">
 					<div class="section-head">
 						<p class="kicker">About Me</p>
-						<h2>Computer Science student with a Data Engineering focus.</h2>
-						<p>I use this portfolio to present my academic development, coursework evidence, technical practice, and project outcomes across my Data Engineering degree journey.</p>
+						<h2>A little more about who I am.</h2>
 					</div>
-					<div class="grid two">
-						<article class="card lavender">
-							<span class="meta">Professional Direction</span>
-							<h3>Data Engineering and Analytics</h3>
-							<p>I am interested in building reliable data workflows, designing analytical models, preparing dashboards, and connecting technical solutions with real organizational needs.</p>
-						</article>
-						<article class="card pink">
-							<span class="meta">Portfolio Purpose</span>
-							<h3>Evidence-based learning record</h3>
-							<p>This e-portfolio organizes my academic work and project evidence so reviewers can understand my technical development from foundational programming to data engineering applications.</p>
-						</article>
-					</div>
+					<article class="about-card">
+						<p>Hi! I'm Lau Yee Wen, a Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia (UTM).</p>
+						<p>I am passionate about technology, data, and problem-solving. Throughout my university journey, I have been involved in various projects related to software development, data engineering, business intelligence, and analytics, allowing me to continuously expand my technical skills and knowledge.</p>
+						<p>Outside of academics, I enjoy scuba diving, watching dramas, and reading novels. Scuba diving is one of my favorite hobbies as it allows me to explore the underwater world, appreciate marine life, and step outside my comfort zone. I believe these experiences help me stay curious, open-minded, and adaptable--qualities that are equally valuable in both life and technology.</p>
+						<p>This e-portfolio showcases my academic journey, projects, achievements, and experiences throughout my years at UTM.</p>
+					</article>
 				</div>
 			</section>
 
