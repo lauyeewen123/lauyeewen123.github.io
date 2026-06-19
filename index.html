@@ -1,228 +1,585 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title><E-PORTFOLIO></E-PORTFOLIO></title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Lau Yee Wen | E-Portfolio</title>
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<style>
+			:root {
+				--bg: #f6f7fb;
+				--panel: #ffffff;
+				--ink: #172033;
+				--muted: #5f687a;
+				--line: #dde2ec;
+				--accent: #1c6dd0;
+				--accent-dark: #134f99;
+				--soft: #edf4ff;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--ink);
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				line-height: 1.7;
+			}
+
+			a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: var(--accent-dark);
+			}
+
+			.site-header {
+				position: sticky;
+				top: 0;
+				z-index: 10;
+				background: rgba(255, 255, 255, 0.94);
+				border-bottom: 1px solid var(--line);
+				backdrop-filter: blur(12px);
+			}
+
+			.nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				max-width: 1120px;
+				margin: 0 auto;
+				padding: 1rem 1.25rem;
+			}
+
+			.brand {
+				color: var(--ink);
+				font-size: 0.95rem;
+				font-weight: 800;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 1rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav-links a {
+				color: var(--muted);
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
+
+			.nav-links a:hover {
+				color: var(--accent);
+			}
+
+			.container {
+				max-width: 1120px;
+				margin: 0 auto;
+				padding: 0 1.25rem;
+			}
+
+			.hero {
+				padding: 5.5rem 0 4rem;
+			}
+
+			.hero-grid {
+				display: grid;
+				grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+				gap: 3rem;
+				align-items: center;
+			}
+
+			.kicker {
+				color: var(--accent);
+				font-size: 0.82rem;
+				font-weight: 800;
+				letter-spacing: 0.14em;
+				margin: 0 0 0.7rem;
+				text-transform: uppercase;
+			}
+
+			h1,
+			h2,
+			h3 {
+				line-height: 1.18;
+				margin: 0;
+			}
+
+			h1 {
+				font-size: clamp(2.8rem, 8vw, 5.8rem);
+				letter-spacing: 0;
+				text-transform: uppercase;
+			}
+
+			h2 {
+				font-size: clamp(1.75rem, 3vw, 2.6rem);
+				margin-bottom: 0.9rem;
+			}
+
+			h3 {
+				font-size: 1.15rem;
+				margin-bottom: 0.65rem;
+			}
+
+			.hero-copy {
+				color: var(--muted);
+				font-size: 1.14rem;
+				margin: 1.2rem 0 1.7rem;
+				max-width: 680px;
+			}
+
+			.actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.8rem;
+				margin-top: 1.5rem;
+			}
+
+			.button {
+				align-items: center;
+				border: 1px solid var(--accent);
+				border-radius: 6px;
+				display: inline-flex;
+				font-size: 0.83rem;
+				font-weight: 800;
+				gap: 0.45rem;
+				letter-spacing: 0.05em;
+				min-height: 2.8rem;
+				padding: 0 1.05rem;
+				text-transform: uppercase;
+			}
+
+			.button.primary {
+				background: var(--accent);
+				color: #ffffff;
+			}
+
+			.button.secondary {
+				background: transparent;
+				color: var(--accent);
+			}
+
+			.profile-photo {
+				background: var(--panel);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				padding: 0.8rem;
+			}
+
+			.profile-photo img {
+				aspect-ratio: 4 / 5;
+				border-radius: 6px;
+				display: block;
+				height: auto;
+				object-fit: cover;
+				object-position: top center;
+				width: 100%;
+			}
+
+			.section {
+				padding: 4rem 0;
+			}
+
+			.section-head {
+				margin-bottom: 1.8rem;
+				max-width: 760px;
+			}
+
+			.section-head p {
+				color: var(--muted);
+				margin: 0;
+			}
+
+			.grid {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.grid.two {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.grid.three {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+			.card {
+				background: var(--panel);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				padding: 1.35rem;
+			}
+
+			.card p {
+				color: var(--muted);
+				margin: 0.35rem 0 0;
+			}
+
+			.meta {
+				color: var(--accent);
+				display: block;
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.09em;
+				margin-bottom: 0.55rem;
+				text-transform: uppercase;
+			}
+
+			.skill-list,
+			.link-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+				list-style: none;
+				margin: 1rem 0 0;
+				padding: 0;
+			}
+
+			.skill-list li {
+				background: var(--soft);
+				border: 1px solid #d4e5ff;
+				border-radius: 6px;
+				color: #164272;
+				font-size: 0.82rem;
+				font-weight: 800;
+				padding: 0.35rem 0.7rem;
+			}
+
+			.link-list a {
+				font-size: 0.82rem;
+				font-weight: 800;
+				text-transform: uppercase;
+			}
+
+			.timeline {
+				border-left: 3px solid var(--accent);
+				display: grid;
+				gap: 1.2rem;
+				margin-left: 0.4rem;
+				padding-left: 1.25rem;
+			}
+
+			.timeline-item {
+				background: var(--panel);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				padding: 1.25rem;
+			}
+
+			.timeline-item p {
+				color: var(--muted);
+				margin: 0.35rem 0 0;
+			}
+
+			.contact {
+				background: #172033;
+				color: #ffffff;
+				padding: 4rem 0;
+			}
+
+			.contact p {
+				color: #c8d0dd;
+			}
+
+			.contact a {
+				color: #ffffff;
+			}
+
+			.footer {
+				background: #111827;
+				color: #aeb7c8;
+				font-size: 0.86rem;
+				padding: 1.2rem 0;
+				text-align: center;
+			}
+
+			@media (max-width: 860px) {
+				.hero-grid,
+				.grid.two,
+				.grid.three {
+					grid-template-columns: 1fr;
+				}
+
+				.nav {
+					align-items: flex-start;
+					flex-direction: column;
+					gap: 0.8rem;
+				}
+
+				.nav-links {
+					flex-wrap: wrap;
+				}
+			}
+
+			@media (max-width: 520px) {
+				.hero {
+					padding-top: 3.4rem;
+				}
+
+				.nav-links {
+					gap: 0.7rem;
+				}
+
+				.nav-links a {
+					font-size: 0.76rem;
+				}
+			}
+		</style>
 	</head>
-	<body class="is-preload">
+	<body>
+		<header class="site-header">
+			<nav class="nav" aria-label="Primary navigation">
+				<a class="brand" href="#home">Lau Yee Wen</a>
+				<ul class="nav-links">
+					<li><a href="#about">About</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#reflections">Reflections</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-
-				<!-- Intro -->
-					<div id="intro">
-						<h1>WELCOME TO MY<br />
-						 E-PORTFOLIO</h1>
-						<p> Feel free to know more about me! 
-						
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
+		<main id="home">
+			<section class="hero">
+				<div class="container hero-grid">
+					<div>
+						<p class="kicker">E-Portfolio</p>
+						<h1>Lau Yee Wen</h1>
+						<p class="hero-copy">Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia, focused on data pipelines, analytics, cloud platforms, and practical project documentation.</p>
+						<div class="actions">
+							<a class="button primary" href="#projects"><i class="fas fa-folder-open"></i> View Work</a>
+							<a class="button secondary" href="https://github.com/lauyeewen123/UTM_CourseWork"><i class="fab fa-github"></i> Coursework Repo</a>
+						</div>
 					</div>
-
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"> LAU YEE WEN</a>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">My Portfolio</a></li>
-							
-							
-						</ul>
-						<ul class="icons">
-						
-							<li><a href="https://www.facebook.com/yeewen.lau.1" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/_yeewennnn_/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://github.com/lauyeewen123" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<span class="date"> 2024</span>
-									<h2><a href="#"> A little bit <br />
-									about me</a></h2>
-									<p>I'm Yee Wen, a first-year student studying in Bachelor of Computer Science in Data Engineering 👨‍💻 🚀<br />
-										
-										</h1> <h2></h2> I am a foodie, I aim to savor the diverse cuisines across the globe!!😆
-										<br /> 
-										<h2></h2> I turn to 20 this year, but don't look like it at all~ <h2></h2> People always called me mushroom because I have short hair and bangs 🍄 <br />
-										
-									</p>
-								</header>
-								<a href="#" class="image-main"><img src="images/pic.jpg" alt="" height="400" /></a> 
-								<br />
-								<br /> I also enjoy admiring the beauty of sunsets and the sky!
-								<br /> <br />
-								<img src="images/SKY.jpg" alt="" height="500" /></a>
-							
-								<img src="images/sunset.jpg" alt="" height="500" /></a> 
-								<ul class="actions special">
-									
-								</ul>
-								
-							</article>
-							<header class="major">
-							<h1><a href="#"> - COURSE - </h1></br></a>
-							<h3><b>Year 1</b></h3>
-							Play Hard, Work Hard! Here are my assignments and notes from my first year of study 😊</header>
-							
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										
-										<span class="date">SECP1513</span>
-										<h2><a href="#"> TECHNOLOGY AND INFORMATION SYSTEM<br />
-										</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/tis.jpg" alt="" /></a>
-									<p>This course serves as a basic introduction to information systems and technology (IS / IT), covering its applications in both professional and household environments. There will be an introduction to several aspects of IS/IT, including hardware, software, networks, communications, internet, multimedia, graphics, and system applications. 
-
-										Through hands-on work in the labs, which will make up a significant portion of the study, students will gain fundamental knowledge of PC installation and productivity tools. Students should be able to identify fundamental IS/IT components and applications by the end of the course.
-									
-									<br /> 
-									</h2> </h2> Lecturer's name: Dr. Aryati Bakri</p>
-									 
-									<ul class="actions special">
-										<li><a href="https://github.com/lauyeewen123/SECPH-Y1S1/tree/main/SECP1513%20TECHNOLOGY%20AND%20INFORMATION%20SYSTEM" class="button">VIEW PROJECT</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">SECJ1013</span>
-										<h2><a href="#"> PROGRAMMING <br />
-											TECHNIQUE I</a></h2></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pt1.jpg" alt="" /></a>
-									<p>As a fundamental subject, this course equips the students with theory and practice on problem-solving techniques by using the structured approach. Students use programming languages such as C++ to solve simple to moderate problems.
-
-										This course covers pre-processor directives, constants and variables, data types, input and output statements, control structures (sequential, selection, loop), built-in and user-defined functions, single and two-dimensional arrays, file operations, pointers, and structured data types.
-									<br /> 
-									</h2> </h2>	Lecturer's name: Dr. Nies Hui Wen</p>
-									<ul class="actions special">
-										<li><a href=" https://github.com/lauyeewen123/SECPH-Y1S1/tree/main/SECJ1013%20PROGRAMMING%20TECHNIQUE%20I" class="button"> VIEW PROJECT</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">SECR1013</span>
-										<h2><a href="#">DIGITAL LOGIC<br />
-										</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/dl.jpg" alt="" /></a>
-									<p>All microprocessor-based systems, including computers, robots, automobiles, and industrial control systems, are built on digital logic, also known as digital electronics. This course introduces students to digital electronics and covers a wide range of important concepts, components, and tools.
-
-										Students will receive up-to-date coverage of digital fundamentals, including basic concepts and programmable logic devices. Laboratory experiments provide hands-on experience with simulator software, real-world devices, and circuits studied in the classroom.
-									<br /> 
-									</h2> </h2>Lecturer's name: Dr. Fazrina</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/lauyeewen123/SECPH-Y1S1/tree/main/SECR1013%20DIGITAL%20LOGIC" class="button">VIEW PROJECT</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">SECI1013</span>
-										<h2><a href="#">DISCRETE STRUCTURE<br />
-										</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/ds.png" alt="" /></a>
-									<p>The concepts and uses of discrete structure in computer science are introduced to the students in this course. Set theory, proof strategies, relations, functions, recurrence relations, counting techniques, graph theory, trees, and finite automata are among the subjects covered in this course.
-
-										By the end of the course, students should be able to model electronic devices and issues using deterministic finite automata finite state machines, analyze and solve problems using recurrence relations and counting techniques, apply graph theory and trees to real-world problems, and solve computer science problems using set theory, relations, and functions.
-									<br /> 
-									</h2> </h2>	Lecturer's name: Dr. Nor Haizan</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/lauyeewen123/SECPH-Y1S1/tree/main/SECI1013%20DISCRETE%20STRUCTURE" class="button">VIEW PROJECT</a></li>
-									</ul>
-			
-							
-							</section>
-
-						
-
+					<div class="profile-photo">
+						<img src="images/profile-formal.png" alt="Formal portrait of Lau Yee Wen" />
 					</div>
+				</div>
+			</section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>Universiti Teknologi Malaysia Johor Bahru<br />
-								81310 Johor Bahru<br />
-								Johor, Malaysia</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#"> +60123650018</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">lauyeewen@graduate.utm.my</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									
-									<li><a href="https://www.facebook.com/yeewen.lau.1" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/_yeewennnn_/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/lauyeewen123" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			<section id="about" class="section">
+				<div class="container">
+					<div class="section-head">
+						<p class="kicker">About Me</p>
+						<h2>Computer Science student with a Data Engineering focus.</h2>
+						<p>I use this portfolio to present my academic development, coursework evidence, technical practice, and reflections. My goal is to show not only completed artifacts, but also the learning process behind each project.</p>
 					</div>
+					<div class="grid two">
+						<article class="card">
+							<span class="meta">Education</span>
+							<h3>Universiti Teknologi Malaysia</h3>
+							<p>Bachelor of Computer Science (Data Engineering). My studies combine programming, database systems, cloud data platforms, business intelligence, and high performance data processing.</p>
+						</article>
+						<article class="card">
+							<span class="meta">Professional Direction</span>
+							<h3>Data Engineering and Analytics</h3>
+							<p>I am interested in building reliable data workflows, designing analytical models, preparing dashboards, and connecting technical solutions with real organizational needs.</p>
+						</article>
+					</div>
+				</div>
+			</section>
 
+			<section id="skills" class="section">
+				<div class="container">
+					<div class="section-head">
+						<p class="kicker">Skills</p>
+						<h2>Technical strengths developed through coursework.</h2>
+					</div>
+					<div class="grid three">
+						<article class="card">
+							<span class="meta">Data</span>
+							<h3>Engineering Tools</h3>
+							<ul class="skill-list">
+								<li>Azure</li>
+								<li>Apache Spark</li>
+								<li>Databricks</li>
+								<li>Data Pipelines</li>
+								<li>Data Warehousing</li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Programming</span>
+							<h3>Development Practice</h3>
+							<ul class="skill-list">
+								<li>Python</li>
+								<li>SQL</li>
+								<li>C++</li>
+								<li>GitHub</li>
+								<li>Documentation</li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Analytics</span>
+							<h3>Communication and Insight</h3>
+							<ul class="skill-list">
+								<li>Power BI</li>
+								<li>Dashboard Design</li>
+								<li>Report Writing</li>
+								<li>Teamwork</li>
+								<li>Problem Solving</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects" class="section">
+				<div class="container">
+					<div class="section-head">
+						<p class="kicker">Projects and Evidence</p>
+						<h2>Special Topic in Data Engineering</h2>
+						<p>SECP3843 coursework evidence for Semester II 2025/2026, organized with direct links to artifacts in my GitHub coursework repository.</p>
+					</div>
+					<div class="grid two">
+						<article class="card">
+							<span class="meta">Industry Project</span>
+							<h3>PPG Recoverable Assets and Inventory Risk Management</h3>
+							<p>Designed analytics outputs for inventory health, shortage monitoring, recoverable assets, and operational risk. This project strengthened my understanding of data modelling, business requirements, and dashboard-ready structures.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project/PPG%20PROJECT%20DOCUMENTATION.pdf">Documentation</a></li>
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project">Project Folder</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Academic Writing</span>
+							<h3>Technical Report</h3>
+							<p>This assignment trained me to explain technical ideas clearly, structure evidence, and present data engineering concepts in a professional report format.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Assignment/Group1_TechnicalReport.pdf">View Report</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Cloud Tutorial</span>
+							<h3>Microsoft Azure</h3>
+							<p>The Azure tutorial introduced scalable cloud services and helped me understand how storage, processing, and analytics components support data workflows.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Tutorial/Group%202_Tutorial%201%20MS%20Azure.pdf">View Tutorial</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Distributed Processing</span>
+							<h3>Apache Spark</h3>
+							<p>This tutorial helped me understand distributed processing, transformations, performance, and why scalable design matters when datasets grow.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Tutorial/TUTORIAL%202_%20APACHE%20SPARK.pdf">View Tutorial</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">AI Tutorial</span>
+							<h3>AI-Assisted Data Workflow</h3>
+							<p>The AI tutorial showed how intelligent tools can support classification, automation, and pipeline assistance while still requiring validation and careful judgement.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/blob/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Tutorial/Tutorial%203.pdf">View Tutorial</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Alternative Assessment</span>
+							<h3>Individual Project</h3>
+							<p>The individual project encouraged independent research into AI-assisted data engineering, data quality, monitoring, and workflow design.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/Individual%20Project">Project Folder</a></li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="reflections" class="section">
+				<div class="container">
+					<div class="section-head">
+						<p class="kicker">Reflection</p>
+						<h2>What I gained this semester.</h2>
+					</div>
+					<div class="timeline">
+						<article class="timeline-item">
+							<span class="meta">Learning Growth</span>
+							<h3>From tools to complete workflows</h3>
+							<p>I gained a clearer view of the complete data engineering workflow: understanding requirements, preparing data, choosing suitable platforms, designing models, building dashboards, and explaining results.</p>
+						</article>
+						<article class="timeline-item">
+							<span class="meta">Professional Practice</span>
+							<h3>Evidence, documentation, and communication</h3>
+							<p>The coursework improved my technical communication, documentation habits, teamwork, and confidence in learning unfamiliar tools through structured practice.</p>
+						</article>
+						<article class="timeline-item">
+							<span class="meta">Improvement Plan</span>
+							<h3>Make evidence easier to review</h3>
+							<p>My next improvement is to make every project folder more complete with a README, reflection, screenshots or previews, tools used, and a clear result summary.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="container">
+					<div class="section-head">
+						<p class="kicker">Coursework Archive</p>
+						<h2>Selected academic work.</h2>
+					</div>
+					<div class="grid three">
+						<article class="card">
+							<span class="meta">Year 3 Sem 2</span>
+							<h3>High Performance Data Processing</h3>
+							<p>Scalable processing and optimization work using notebooks, datasets, and performance-focused pipeline practice.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING">View Course</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Year 3 Sem 2</span>
+							<h3>Application Development</h3>
+							<p>Application-based coursework applying software development, user interface design, testing, and deployment practice.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT">View Course</a></li>
+							</ul>
+						</article>
+						<article class="card">
+							<span class="meta">Repository</span>
+							<h3>Complete UTM Coursework</h3>
+							<p>A public archive of assignments, projects, reports, presentations, and reflections across my data engineering study journey.</p>
+							<ul class="link-list">
+								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork">View Repository</a></li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="section-head">
+					<p class="kicker">Contact</p>
+					<h2>Get in touch.</h2>
+					<p>Open to academic collaboration, internship opportunities, and data engineering learning discussions.</p>
+				</div>
+				<div class="actions">
+					<a class="button primary" href="mailto:lauyeewen@graduate.utm.my"><i class="fas fa-envelope"></i> Email</a>
+					<a class="button secondary" href="https://github.com/lauyeewen123"><i class="fab fa-github"></i> GitHub</a>
+				</div>
 			</div>
+		</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		<footer class="footer">
+			<div class="container">Copyright &copy; Lau Yee Wen. E-Portfolio for SECP3843 Special Topic in Data Engineering.</div>
+		</footer>
 	</body>
 </html>
