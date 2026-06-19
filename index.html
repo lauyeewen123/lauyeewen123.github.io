@@ -7,14 +7,18 @@
 		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<style>
 			:root {
-				--bg: #f6f7fb;
+				--bg: #fff8f1;
 				--panel: #ffffff;
 				--ink: #172033;
 				--muted: #5f687a;
-				--line: #dde2ec;
-				--accent: #1c6dd0;
-				--accent-dark: #134f99;
-				--soft: #edf4ff;
+				--line: #eadfd6;
+				--accent: #0f8b8d;
+				--accent-dark: #096466;
+				--coral: #ff6b5f;
+				--gold: #f5b841;
+				--green: #38a169;
+				--violet: #7c5cff;
+				--soft: #e9fbf8;
 			}
 
 			* {
@@ -27,7 +31,10 @@
 
 			body {
 				margin: 0;
-				background: var(--bg);
+				background:
+					radial-gradient(circle at top left, rgba(255, 107, 95, 0.22), transparent 34rem),
+					radial-gradient(circle at 85% 12%, rgba(245, 184, 65, 0.24), transparent 28rem),
+					linear-gradient(180deg, #fff8f1 0%, #f7fbff 48%, #f8fff9 100%);
 				color: var(--ink);
 				font-family: Arial, Helvetica, sans-serif;
 				font-size: 16px;
@@ -47,7 +54,7 @@
 				position: sticky;
 				top: 0;
 				z-index: 10;
-				background: rgba(255, 255, 255, 0.94);
+				background: rgba(255, 255, 255, 0.88);
 				border-bottom: 1px solid var(--line);
 				backdrop-filter: blur(12px);
 			}
@@ -62,7 +69,10 @@
 			}
 
 			.brand {
-				color: var(--ink);
+				background: linear-gradient(90deg, var(--accent), var(--coral), var(--gold));
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
 				font-size: 0.95rem;
 				font-weight: 800;
 				letter-spacing: 0.08em;
@@ -82,11 +92,30 @@
 				font-size: 0.82rem;
 				font-weight: 700;
 				letter-spacing: 0.05em;
+				position: relative;
 				text-transform: uppercase;
+			}
+
+			.nav-links a::after {
+				background: linear-gradient(90deg, var(--accent), var(--coral));
+				border-radius: 99px;
+				bottom: -0.35rem;
+				content: "";
+				height: 3px;
+				left: 0;
+				position: absolute;
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform 180ms ease;
+				width: 100%;
 			}
 
 			.nav-links a:hover {
 				color: var(--accent);
+			}
+
+			.nav-links a:hover::after {
+				transform: scaleX(1);
 			}
 
 			.container {
@@ -107,7 +136,7 @@
 			}
 
 			.kicker {
-				color: var(--accent);
+				color: var(--coral);
 				font-size: 0.82rem;
 				font-weight: 800;
 				letter-spacing: 0.14em;
@@ -123,6 +152,10 @@
 			}
 
 			h1 {
+				background: linear-gradient(90deg, #172033 0%, #0f8b8d 42%, #ff6b5f 78%, #f5b841 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
 				font-size: clamp(2.8rem, 8vw, 5.8rem);
 				letter-spacing: 0;
 				text-transform: uppercase;
@@ -154,33 +187,82 @@
 
 			.button {
 				align-items: center;
-				border: 1px solid var(--accent);
-				border-radius: 6px;
+				border: 0;
+				border-radius: 999px;
+				box-shadow: 0 14px 32px rgba(23, 32, 51, 0.12);
+				cursor: pointer;
 				display: inline-flex;
 				font-size: 0.83rem;
 				font-weight: 800;
 				gap: 0.45rem;
 				letter-spacing: 0.05em;
 				min-height: 2.8rem;
+				overflow: hidden;
 				padding: 0 1.05rem;
+				position: relative;
 				text-transform: uppercase;
+				transform: translateY(0);
+				transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+			}
+
+			.button::before {
+				background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.52), transparent);
+				content: "";
+				height: 100%;
+				left: -120%;
+				position: absolute;
+				top: 0;
+				transform: skewX(-18deg);
+				transition: left 420ms ease;
+				width: 80%;
+			}
+
+			.button:hover {
+				box-shadow: 0 18px 38px rgba(23, 32, 51, 0.18);
+				filter: saturate(1.08);
+				transform: translateY(-3px);
+			}
+
+			.button:hover::before {
+				left: 130%;
+			}
+
+			.button:active {
+				transform: translateY(0) scale(0.98);
 			}
 
 			.button.primary {
-				background: var(--accent);
+				background: linear-gradient(135deg, var(--accent), var(--green));
 				color: #ffffff;
 			}
 
 			.button.secondary {
-				background: transparent;
-				color: var(--accent);
+				background: linear-gradient(135deg, var(--coral), var(--gold));
+				color: #172033;
+			}
+
+			.ripple {
+				animation: ripple 580ms ease-out;
+				background: rgba(255, 255, 255, 0.55);
+				border-radius: 999px;
+				pointer-events: none;
+				position: absolute;
+				transform: scale(0);
+			}
+
+			@keyframes ripple {
+				to {
+					opacity: 0;
+					transform: scale(4);
+				}
 			}
 
 			.profile-photo {
-				background: var(--panel);
-				border: 1px solid var(--line);
+				background: linear-gradient(135deg, rgba(15, 139, 141, 0.2), rgba(255, 107, 95, 0.22), rgba(245, 184, 65, 0.2));
+				border: 1px solid rgba(255, 255, 255, 0.75);
 				border-radius: 8px;
 				padding: 0.8rem;
+				box-shadow: 0 24px 60px rgba(23, 32, 51, 0.16);
 			}
 
 			.profile-photo img {
@@ -224,7 +306,27 @@
 				background: var(--panel);
 				border: 1px solid var(--line);
 				border-radius: 8px;
+				box-shadow: 0 14px 34px rgba(23, 32, 51, 0.07);
 				padding: 1.35rem;
+				position: relative;
+				transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+			}
+
+			.card::before {
+				background: linear-gradient(90deg, var(--accent), var(--coral), var(--gold));
+				border-radius: 8px 8px 0 0;
+				content: "";
+				height: 5px;
+				left: -1px;
+				position: absolute;
+				right: -1px;
+				top: -1px;
+			}
+
+			.card:hover {
+				border-color: rgba(15, 139, 141, 0.35);
+				box-shadow: 0 20px 48px rgba(23, 32, 51, 0.12);
+				transform: translateY(-4px);
 			}
 
 			.card p {
@@ -253,23 +355,33 @@
 			}
 
 			.skill-list li {
-				background: var(--soft);
-				border: 1px solid #d4e5ff;
-				border-radius: 6px;
-				color: #164272;
+				background: linear-gradient(135deg, #e9fbf8, #fff4d8);
+				border: 1px solid rgba(15, 139, 141, 0.18);
+				border-radius: 999px;
+				color: #164f55;
 				font-size: 0.82rem;
 				font-weight: 800;
 				padding: 0.35rem 0.7rem;
+				transition: background 180ms ease, transform 180ms ease;
+			}
+
+			.skill-list li:hover {
+				background: linear-gradient(135deg, #ffe5e2, #e9fbf8);
+				transform: translateY(-2px);
 			}
 
 			.link-list a {
+				background: linear-gradient(90deg, var(--accent), var(--coral));
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
 				font-size: 0.82rem;
 				font-weight: 800;
 				text-transform: uppercase;
 			}
 
 			.timeline {
-				border-left: 3px solid var(--accent);
+				border-left: 3px solid var(--coral);
 				display: grid;
 				gap: 1.2rem;
 				margin-left: 0.4rem;
@@ -280,6 +392,7 @@
 				background: var(--panel);
 				border: 1px solid var(--line);
 				border-radius: 8px;
+				box-shadow: 0 14px 34px rgba(23, 32, 51, 0.07);
 				padding: 1.25rem;
 			}
 
@@ -289,7 +402,10 @@
 			}
 
 			.contact {
-				background: #172033;
+				background:
+					radial-gradient(circle at 20% 10%, rgba(255, 107, 95, 0.35), transparent 20rem),
+					radial-gradient(circle at 82% 20%, rgba(245, 184, 65, 0.28), transparent 19rem),
+					linear-gradient(135deg, #172033, #123d4a 55%, #164f55);
 				color: #ffffff;
 				padding: 4rem 0;
 			}
@@ -581,5 +697,25 @@
 		<footer class="footer">
 			<div class="container">Copyright &copy; Lau Yee Wen. E-Portfolio for SECP3843 Special Topic in Data Engineering.</div>
 		</footer>
+		<script>
+			document.querySelectorAll(".button").forEach(function(button) {
+				button.addEventListener("click", function(event) {
+					var ripple = document.createElement("span");
+					var rect = button.getBoundingClientRect();
+					var size = Math.max(rect.width, rect.height);
+
+					ripple.className = "ripple";
+					ripple.style.width = size + "px";
+					ripple.style.height = size + "px";
+					ripple.style.left = event.clientX - rect.left - size / 2 + "px";
+					ripple.style.top = event.clientY - rect.top - size / 2 + "px";
+
+					button.appendChild(ripple);
+					window.setTimeout(function() {
+						ripple.remove();
+					}, 620);
+				});
+			});
+		</script>
 	</body>
 </html>
