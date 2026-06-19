@@ -165,6 +165,63 @@
 				text-transform: uppercase;
 			}
 
+			/* Interactive hero name: gentle floating by default, wave motion on hover/tap. */
+			.animated-name {
+				cursor: default;
+				display: flex;
+				flex-wrap: wrap;
+				gap: clamp(0.25rem, 1vw, 0.7rem);
+				line-height: 1;
+				max-width: 100%;
+				user-select: none;
+			}
+
+			.animated-name span {
+				animation: nameFloat 4.6s ease-in-out infinite;
+				animation-delay: calc(var(--i) * 90ms);
+				background: linear-gradient(90deg, #243047 0%, #7c8fd6 45%, #d989a2 78%, #d99f4d 100%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				display: inline-block;
+				text-shadow: 0 18px 38px rgba(124, 143, 214, 0.16);
+				transition: filter 180ms ease, transform 180ms ease;
+				will-change: transform;
+			}
+
+			.animated-name:hover span,
+			.animated-name.is-dancing span {
+				animation: nameWave 850ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+				animation-delay: calc(var(--i) * 55ms);
+				filter: saturate(1.2);
+			}
+
+			@keyframes nameFloat {
+				0%,
+				100% {
+					transform: translateY(0) rotate(0deg);
+				}
+
+				50% {
+					transform: translateY(-0.12em) rotate(-0.35deg);
+				}
+			}
+
+			@keyframes nameWave {
+				0%,
+				100% {
+					transform: translateY(0) rotate(0deg) scale(1);
+				}
+
+				35% {
+					transform: translateY(-0.28em) rotate(-2deg) scale(1.03);
+				}
+
+				70% {
+					transform: translateY(0.08em) rotate(1deg) scale(0.99);
+				}
+			}
+
 			h2 {
 				font-size: clamp(1.75rem, 3vw, 2.6rem);
 				margin-bottom: 0.9rem;
@@ -491,6 +548,14 @@
 					font-size: 0.76rem;
 				}
 			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.animated-name span,
+				.animated-name:hover span,
+				.animated-name.is-dancing span {
+					animation: none;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -514,7 +579,11 @@
 				<div class="container hero-grid">
 					<div>
 						<p class="kicker">E-Portfolio</p>
-						<h1>Lau Yee Wen</h1>
+						<h1 class="animated-name" aria-label="Lau Yee Wen" title="Hover or tap my name">
+							<span style="--i: 0;">L</span><span style="--i: 1;">A</span><span style="--i: 2;">U</span>
+							<span style="--i: 3;">Y</span><span style="--i: 4;">E</span><span style="--i: 5;">E</span>
+							<span style="--i: 6;">W</span><span style="--i: 7;">E</span><span style="--i: 8;">N</span>
+						</h1>
 						<p class="hero-copy">Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia, focused on data pipelines, analytics, cloud platforms, and practical project documentation.</p>
 						<div class="actions">
 							<a class="button primary" href="#projects"><i class="fas fa-folder-open"></i> View Work</a>
@@ -776,6 +845,20 @@
 					}, 620);
 				});
 			});
+
+			var animatedName = document.querySelector(".animated-name");
+
+			if (animatedName) {
+				animatedName.addEventListener("click", function() {
+					animatedName.classList.remove("is-dancing");
+					void animatedName.offsetWidth;
+					animatedName.classList.add("is-dancing");
+
+					window.setTimeout(function() {
+						animatedName.classList.remove("is-dancing");
+					}, 1300);
+				});
+			}
 		</script>
 	</body>
 </html>
