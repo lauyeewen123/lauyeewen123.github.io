@@ -134,8 +134,8 @@
 
 			.hero-grid {
 				display: grid;
-				grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-				gap: 3rem;
+				grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.55fr);
+				gap: clamp(2rem, 5vw, 4rem);
 				align-items: center;
 			}
 
@@ -156,44 +156,54 @@
 			}
 
 			h1 {
-				background: linear-gradient(90deg, #243047 0%, #7c8fd6 45%, #d989a2 78%, #d99f4d 100%);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent;
-				font-size: clamp(2.8rem, 8vw, 5.8rem);
+				color: #30364f;
+				font-size: clamp(3rem, 6vw, 4rem);
 				letter-spacing: 0;
-				text-transform: uppercase;
+				text-transform: none;
 			}
 
-			/* Interactive hero name: gentle floating by default, wave motion on hover/tap. */
+			/* Interactive hero name: subtle professional movement without awkward letter wrapping. */
 			.animated-name {
 				cursor: default;
-				display: flex;
-				flex-wrap: wrap;
-				gap: clamp(0.25rem, 1vw, 0.7rem);
-				line-height: 1;
+				display: inline-block;
+				line-height: 1.08;
 				max-width: 100%;
+				position: relative;
 				user-select: none;
+				white-space: nowrap;
 			}
 
-			.animated-name span {
-				animation: nameFloat 4.6s ease-in-out infinite;
-				animation-delay: calc(var(--i) * 90ms);
-				background: linear-gradient(90deg, #243047 0%, #7c8fd6 45%, #d989a2 78%, #d99f4d 100%);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent;
+			.animated-name .name-text {
+				animation: nameFloat 5.5s ease-in-out infinite;
 				display: inline-block;
-				text-shadow: 0 18px 38px rgba(124, 143, 214, 0.16);
-				transition: filter 180ms ease, transform 180ms ease;
+				text-shadow: 0 12px 24px rgba(124, 143, 214, 0.12);
+				transition: color 180ms ease, transform 180ms ease;
 				will-change: transform;
 			}
 
-			.animated-name:hover span,
-			.animated-name.is-dancing span {
-				animation: nameWave 850ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-				animation-delay: calc(var(--i) * 55ms);
-				filter: saturate(1.2);
+			.animated-name::after {
+				background: linear-gradient(90deg, rgba(199, 185, 255, 0.65), rgba(244, 167, 187, 0.62), rgba(185, 234, 215, 0.68));
+				border-radius: 999px;
+				bottom: -0.18em;
+				content: "";
+				height: 0.12em;
+				left: 0.05em;
+				position: absolute;
+				transform: scaleX(0.36);
+				transform-origin: left;
+				transition: transform 220ms ease;
+				width: 96%;
+			}
+
+			.animated-name:hover .name-text,
+			.animated-name.is-dancing .name-text {
+				animation: nameLift 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+				color: #4f5f9f;
+			}
+
+			.animated-name:hover::after,
+			.animated-name.is-dancing::after {
+				transform: scaleX(1);
 			}
 
 			@keyframes nameFloat {
@@ -203,22 +213,18 @@
 				}
 
 				50% {
-					transform: translateY(-0.12em) rotate(-0.35deg);
+					transform: translateY(-0.06em);
 				}
 			}
 
-			@keyframes nameWave {
+			@keyframes nameLift {
 				0%,
 				100% {
-					transform: translateY(0) rotate(0deg) scale(1);
+					transform: translateY(0);
 				}
 
-				35% {
-					transform: translateY(-0.28em) rotate(-2deg) scale(1.03);
-				}
-
-				70% {
-					transform: translateY(0.08em) rotate(1deg) scale(0.99);
+				50% {
+					transform: translateY(-0.14em);
 				}
 			}
 
@@ -320,21 +326,31 @@
 			}
 
 			.profile-photo {
-				background: linear-gradient(135deg, rgba(199, 185, 255, 0.42), rgba(244, 167, 187, 0.32), rgba(185, 234, 215, 0.34));
-				border: 1px solid rgba(255, 255, 255, 0.75);
+				align-self: center;
+				background: transparent;
+				border: 0;
 				border-radius: 18px;
-				padding: 0.8rem;
-				box-shadow: var(--shadow);
+				justify-self: end;
+				max-width: 310px;
+				padding: 0;
 			}
 
 			.profile-photo img {
 				aspect-ratio: 4 / 5;
-				border-radius: 14px;
+				border: 1px solid rgba(234, 223, 236, 0.9);
+				border-radius: 16px;
+				box-shadow: 0 16px 34px rgba(92, 87, 128, 0.14);
 				display: block;
 				height: auto;
 				object-fit: cover;
 				object-position: top center;
+				transition: box-shadow 180ms ease, transform 180ms ease;
 				width: 100%;
+			}
+
+			.profile-photo img:hover {
+				box-shadow: 0 18px 40px rgba(92, 87, 128, 0.18);
+				transform: translateY(-2px);
 			}
 
 			.section {
@@ -503,6 +519,15 @@
 					grid-template-columns: 1fr;
 				}
 
+				.hero-grid {
+					gap: 2rem;
+				}
+
+				.profile-photo {
+					justify-self: start;
+					max-width: 260px;
+				}
+
 				.nav {
 					align-items: flex-start;
 					flex-direction: column;
@@ -519,6 +544,14 @@
 					padding-top: 3.4rem;
 				}
 
+				h1 {
+					font-size: clamp(2rem, 14vw, 2.5rem);
+				}
+
+				.animated-name {
+					white-space: normal;
+				}
+
 				.nav-links {
 					gap: 0.7rem;
 				}
@@ -529,10 +562,12 @@
 			}
 
 			@media (prefers-reduced-motion: reduce) {
-				.animated-name span,
-				.animated-name:hover span,
-				.animated-name.is-dancing span {
+				.animated-name .name-text,
+				.animated-name:hover .name-text,
+				.animated-name.is-dancing .name-text,
+				.profile-photo img {
 					animation: none;
+					transition: none;
 				}
 			}
 		</style>
@@ -557,10 +592,8 @@
 				<div class="container hero-grid">
 					<div>
 						<p class="kicker">E-Portfolio</p>
-						<h1 class="animated-name" aria-label="Lau Yee Wen" title="Hover or tap my name">
-							<span style="--i: 0;">L</span><span style="--i: 1;">A</span><span style="--i: 2;">U</span>
-							<span style="--i: 3;">Y</span><span style="--i: 4;">E</span><span style="--i: 5;">E</span>
-							<span style="--i: 6;">W</span><span style="--i: 7;">E</span><span style="--i: 8;">N</span>
+						<h1 class="animated-name" title="Hover or tap my name">
+							<span class="name-text">Lau Yee Wen</span>
 						</h1>
 						<p class="hero-copy">Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia, showcasing coursework, systems, data projects, reports, and technical growth from Year 1 to Year 3.</p>
 						<div class="actions">
