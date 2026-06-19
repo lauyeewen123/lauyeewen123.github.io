@@ -441,6 +441,93 @@
 				transform: translateY(-2px);
 			}
 
+			/* Education journey: vertical timeline with compact milestones and pastel focus badges. */
+			.learning-journey {
+				display: grid;
+				gap: 1rem;
+				margin: 0;
+				max-width: 980px;
+				padding: 0;
+				position: relative;
+			}
+
+			.learning-journey::before {
+				background: linear-gradient(180deg, var(--lavender), var(--pink), var(--mint));
+				border-radius: 999px;
+				bottom: 1.2rem;
+				content: "";
+				left: 1.35rem;
+				position: absolute;
+				top: 1.2rem;
+				width: 3px;
+			}
+
+			.journey-item {
+				align-items: flex-start;
+				display: grid;
+				gap: 1rem;
+				grid-template-columns: 2.8rem minmax(0, 1fr);
+				position: relative;
+			}
+
+			.journey-icon {
+				align-items: center;
+				background: #ffffff;
+				border: 1px solid rgba(234, 223, 236, 0.95);
+				border-radius: 999px;
+				box-shadow: 0 10px 24px rgba(92, 87, 128, 0.11);
+				display: inline-flex;
+				font-size: 1.12rem;
+				height: 2.8rem;
+				justify-content: center;
+				position: relative;
+				width: 2.8rem;
+				z-index: 1;
+			}
+
+			.journey-card {
+				background: rgba(255, 255, 255, 0.82);
+				border: 1px solid rgba(234, 223, 236, 0.9);
+				border-radius: 18px;
+				box-shadow: 0 14px 34px rgba(92, 87, 128, 0.1);
+				padding: 1.25rem;
+				transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+			}
+
+			.journey-card:hover {
+				border-color: rgba(124, 143, 214, 0.36);
+				box-shadow: 0 18px 42px rgba(92, 87, 128, 0.14);
+				transform: translateY(-3px);
+			}
+
+			.journey-card h3 {
+				margin-bottom: 0.35rem;
+			}
+
+			.journey-card p {
+				color: var(--muted);
+				margin: 0;
+			}
+
+			.focus-badges {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.55rem;
+				list-style: none;
+				margin: 0.95rem 0 0;
+				padding: 0;
+			}
+
+			.focus-badges li {
+				background: linear-gradient(135deg, rgba(247, 241, 255, 0.95), rgba(255, 248, 234, 0.95));
+				border: 1px solid rgba(124, 143, 214, 0.16);
+				border-radius: 999px;
+				color: #4b567f;
+				font-size: 0.86rem;
+				font-weight: 800;
+				padding: 0.32rem 0.68rem;
+			}
+
 			.grid {
 				display: grid;
 				gap: 1.25rem;
@@ -611,6 +698,10 @@
 					max-width: 260px;
 				}
 
+				.learning-journey::before {
+					left: 1.25rem;
+				}
+
 				.nav {
 					align-items: flex-start;
 					flex-direction: column;
@@ -646,6 +737,17 @@
 
 				.nav-links a {
 					font-size: 0.76rem;
+				}
+
+				.journey-item {
+					gap: 0.8rem;
+					grid-template-columns: 2.5rem minmax(0, 1fr);
+				}
+
+				.journey-icon {
+					font-size: 1rem;
+					height: 2.5rem;
+					width: 2.5rem;
 				}
 			}
 
@@ -727,18 +829,39 @@
 				<div class="container">
 					<div class="section-head reveal">
 						<p class="kicker">Education</p>
-						<h2>Academic background.</h2>
+						<h2>Education &amp; Learning Journey</h2>
 					</div>
-					<div class="grid two">
-						<article class="card blue reveal">
-							<span class="meta">University</span>
-							<h3>Universiti Teknologi Malaysia</h3>
-							<p>Bachelor of Computer Science (Data Engineering). My studies combine programming, database systems, cloud data platforms, business intelligence, and high performance data processing.</p>
+					<div class="learning-journey">
+						<article class="journey-item reveal">
+							<span class="journey-icon">🎓</span>
+							<div class="journey-card">
+								<span class="meta">University</span>
+								<h3>Universiti Teknologi Malaysia (UTM)</h3>
+								<p>Bachelor of Computer Science (Data Engineering)</p>
+							</div>
 						</article>
-						<article class="card mint reveal">
-							<span class="meta">Academic Journey</span>
-							<h3>Year 1 to Year 3 Coursework</h3>
-							<p>My portfolio includes programming, database design, system development, object-oriented programming, application development, high performance data processing, and industry-oriented data engineering projects.</p>
+						<article class="journey-item reveal">
+							<span class="journey-icon">📚</span>
+							<div class="journey-card">
+								<span class="meta">Academic Progress</span>
+								<h3>Year 1 to Year 3 Coursework</h3>
+								<p>From computing foundations to software systems, analytics, and data engineering projects.</p>
+							</div>
+						</article>
+						<article class="journey-item reveal">
+							<span class="journey-icon">✨</span>
+							<div class="journey-card">
+								<span class="meta">Key Focus Areas</span>
+								<h3>Skills Built Through Coursework</h3>
+								<ul class="focus-badges">
+									<li>Programming</li>
+									<li>Databases</li>
+									<li>Data Analytics</li>
+									<li>Business Intelligence</li>
+									<li>Cloud Data Engineering</li>
+									<li>Application Development</li>
+								</ul>
+							</div>
 						</article>
 					</div>
 				</div>
