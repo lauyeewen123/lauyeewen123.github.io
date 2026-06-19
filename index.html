@@ -578,7 +578,6 @@
 				text-transform: uppercase;
 			}
 
-			.skill-list,
 			.link-list {
 				display: flex;
 				flex-wrap: wrap;
@@ -586,22 +585,6 @@
 				list-style: none;
 				margin: 1rem 0 0;
 				padding: 0;
-			}
-
-			.skill-list li {
-				background: linear-gradient(135deg, #f7f1ff, #edf9ff);
-				border: 1px solid rgba(124, 143, 214, 0.2);
-				border-radius: 999px;
-				color: #4b567f;
-				font-size: 0.82rem;
-				font-weight: 800;
-				padding: 0.35rem 0.7rem;
-				transition: background 180ms ease, transform 180ms ease;
-			}
-
-			.skill-list li:hover {
-				background: linear-gradient(135deg, #ffe8ef, #e9fff6);
-				transform: translateY(-2px);
 			}
 
 			.link-list a {
@@ -612,6 +595,79 @@
 				font-size: 0.82rem;
 				font-weight: 800;
 				text-transform: uppercase;
+			}
+
+			/* Tech stack section: logo-based tiles for a more visual developer portfolio feel. */
+			.tech-stack {
+				display: grid;
+				gap: 1.25rem;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.tech-category {
+				background: rgba(255, 255, 255, 0.68);
+				backdrop-filter: blur(14px);
+				border: 1px solid rgba(255, 255, 255, 0.78);
+				border-radius: 20px;
+				box-shadow: 0 16px 36px rgba(92, 87, 128, 0.1);
+				padding: 1.25rem;
+				transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+			}
+
+			.tech-category:hover {
+				border-color: rgba(124, 143, 214, 0.34);
+				box-shadow: 0 20px 46px rgba(92, 87, 128, 0.14);
+				transform: translateY(-4px);
+			}
+
+			.tech-category h3 {
+				margin-bottom: 1rem;
+			}
+
+			.tech-grid {
+				display: grid;
+				gap: 0.8rem;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+			.tech-item {
+				align-items: center;
+				background: linear-gradient(135deg, rgba(247, 241, 255, 0.82), rgba(237, 249, 255, 0.82));
+				border: 1px solid rgba(124, 143, 214, 0.14);
+				border-radius: 16px;
+				display: flex;
+				flex-direction: column;
+				gap: 0.55rem;
+				min-height: 7rem;
+				justify-content: center;
+				padding: 0.85rem 0.6rem;
+				text-align: center;
+				transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+			}
+
+			.tech-item:hover {
+				border-color: rgba(244, 167, 187, 0.36);
+				box-shadow: 0 14px 30px rgba(124, 143, 214, 0.18);
+				transform: translateY(-5px);
+			}
+
+			.tech-item img,
+			.tech-item i {
+				display: block;
+				height: 2.15rem;
+				width: 2.15rem;
+			}
+
+			.tech-item i {
+				color: #30364f;
+				font-size: 2.15rem;
+				line-height: 1;
+			}
+
+			.tech-item span {
+				color: #3f485f;
+				font-size: 0.86rem;
+				font-weight: 800;
 			}
 
 			/* Contact area kept light and friendly to avoid an overly dark academic page. */
@@ -659,6 +715,10 @@
 				.hero-grid,
 				.grid.two,
 				.grid.three {
+					grid-template-columns: 1fr;
+				}
+
+				.tech-stack {
 					grid-template-columns: 1fr;
 				}
 
@@ -714,6 +774,10 @@
 
 				.what-grid {
 					grid-template-columns: 1fr;
+				}
+
+				.tech-grid {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
 				}
 			}
 
@@ -827,41 +891,85 @@
 				<div class="container">
 					<div class="section-head reveal">
 						<p class="kicker">Technical Skills</p>
-						<h2>Technical strengths developed through coursework.</h2>
+						<h2>Tech Stack &amp; Tools</h2>
+						<p>Technologies and tools I have used throughout academic projects and personal development.</p>
 					</div>
-					<div class="grid three">
-						<article class="card lavender reveal">
-							<span class="meta">Data</span>
-							<h3>Engineering Tools</h3>
-							<ul class="skill-list">
-								<li>Azure</li>
-								<li>Apache Spark</li>
-								<li>Databricks</li>
-								<li>Data Pipelines</li>
-								<li>Data Warehousing</li>
-							</ul>
-						</article>
-						<article class="card blue reveal">
+					<div class="tech-stack">
+						<article class="tech-category reveal">
 							<span class="meta">Programming</span>
-							<h3>Development Practice</h3>
-							<ul class="skill-list">
-								<li>Python</li>
-								<li>SQL</li>
-								<li>C++</li>
-								<li>GitHub</li>
-								<li>Documentation</li>
-							</ul>
+							<h3>Programming</h3>
+							<div class="tech-grid" aria-label="Programming technologies">
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/python/3776AB" alt="Python logo" />
+									<span>Python</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL logo" />
+									<span>SQL</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++ logo" />
+									<span>C++</span>
+								</div>
+							</div>
 						</article>
-						<article class="card mint reveal">
-							<span class="meta">Analytics</span>
-							<h3>Communication and Insight</h3>
-							<ul class="skill-list">
-								<li>Power BI</li>
-								<li>Dashboard Design</li>
-								<li>Report Writing</li>
-								<li>Teamwork</li>
-								<li>Problem Solving</li>
-							</ul>
+						<article class="tech-category reveal">
+							<span class="meta">Data Engineering</span>
+							<h3>Data Engineering</h3>
+							<div class="tech-grid" aria-label="Data engineering technologies">
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/microsoftazure/0078D4" alt="Azure logo" />
+									<span>Azure</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks logo" />
+									<span>Databricks</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/apachespark/E25A1C" alt="Apache Spark logo" />
+									<span>Apache Spark</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/apacheairflow/017CEE" alt="Apache Airflow logo" />
+									<span>Apache Airflow</span>
+								</div>
+							</div>
+						</article>
+						<article class="tech-category reveal">
+							<span class="meta">Development</span>
+							<h3>Development</h3>
+							<div class="tech-grid" aria-label="Development technologies">
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/github/181717" alt="GitHub logo" />
+									<span>GitHub</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter logo" />
+									<span>Flutter</span>
+								</div>
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase logo" />
+									<span>Firebase</span>
+								</div>
+							</div>
+						</article>
+						<article class="tech-category reveal">
+							<span class="meta">Analytics &amp; BI</span>
+							<h3>Analytics &amp; BI</h3>
+							<div class="tech-grid" aria-label="Analytics and business intelligence tools">
+								<div class="tech-item">
+									<img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI logo" />
+									<span>Power BI</span>
+								</div>
+								<div class="tech-item">
+									<i class="fas fa-chart-line" aria-hidden="true"></i>
+									<span>Data Analytics</span>
+								</div>
+								<div class="tech-item">
+									<i class="fas fa-chart-pie" aria-hidden="true"></i>
+									<span>Dashboards</span>
+								</div>
+							</div>
 						</article>
 					</div>
 				</div>
