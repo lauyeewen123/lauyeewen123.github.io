@@ -377,7 +377,8 @@
 			}
 
 			.section {
-				padding: 4.4rem 0;
+				padding: 5.2rem 0;
+				scroll-margin-top: 5.5rem;
 			}
 
 			.section:nth-of-type(even) {
@@ -385,7 +386,7 @@
 			}
 
 			.section-head {
-				margin-bottom: 1.8rem;
+				margin-bottom: 2.2rem;
 				max-width: 760px;
 			}
 
@@ -442,7 +443,7 @@
 
 			.grid {
 				display: grid;
-				gap: 1.1rem;
+				gap: 1.25rem;
 			}
 
 			.grid.two {
@@ -572,6 +573,19 @@
 				color: inherit;
 			}
 
+			/* Scroll reveal animation: soft fade and lift for headings, cards, and content blocks. */
+			.reveal {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.7s ease, transform 0.7s ease;
+				will-change: opacity, transform;
+			}
+
+			.reveal.active {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
 			.footer {
 				background: #fff7fb;
 				border-top: 1px solid var(--line);
@@ -639,9 +653,15 @@
 				.animated-name .name-text,
 				.animated-name:hover .name-text,
 				.animated-name.is-dancing .name-text,
-				.profile-photo img {
+				.profile-photo img,
+				.reveal {
 					animation: none;
 					transition: none;
+				}
+
+				.reveal {
+					opacity: 1;
+					transform: none;
 				}
 			}
 		</style>
@@ -664,7 +684,7 @@
 		<main id="home">
 			<section class="hero">
 				<div class="container hero-grid">
-					<div class="hero-text">
+					<div class="hero-text reveal">
 						<p class="kicker">E-Portfolio</p>
 						<h1 class="animated-name" title="Hover or tap my name">
 							<span class="name-text">Lau Yee Wen</span>
@@ -677,7 +697,7 @@
 							<a class="button secondary" href="#coursework"><i class="fas fa-book-open"></i> Coursework</a>
 						</div>
 					</div>
-					<div class="profile-photo">
+					<div class="profile-photo reveal">
 						<img src="images/profile-formal.png" alt="Formal portrait of Lau Yee Wen" />
 					</div>
 				</div>
@@ -685,11 +705,11 @@
 
 			<section id="about" class="section">
 				<div class="container">
-					<div class="section-head">
+					<div class="section-head reveal">
 						<p class="kicker">About Me</p>
 						<h2>A little more about who I am.</h2>
 					</div>
-					<article class="about-card">
+					<article class="about-card reveal">
 						<p>Hi! I'm Lau Yee Wen, a Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia (UTM). I am passionate about technology, data, and problem-solving, especially through hands-on projects in software development, data engineering, business intelligence, and analytics.</p>
 						<p>Outside of academics, I enjoy scuba diving, watching dramas, and reading novels. These hobbies keep me curious, open-minded, and adaptable, which are qualities I also value in technology and learning.</p>
 						<ul class="hobby-list" aria-label="Interests and hobbies">
@@ -705,17 +725,17 @@
 
 			<section id="education" class="section">
 				<div class="container">
-					<div class="section-head">
+					<div class="section-head reveal">
 						<p class="kicker">Education</p>
 						<h2>Academic background.</h2>
 					</div>
 					<div class="grid two">
-						<article class="card blue">
+						<article class="card blue reveal">
 							<span class="meta">University</span>
 							<h3>Universiti Teknologi Malaysia</h3>
 							<p>Bachelor of Computer Science (Data Engineering). My studies combine programming, database systems, cloud data platforms, business intelligence, and high performance data processing.</p>
 						</article>
-						<article class="card mint">
+						<article class="card mint reveal">
 							<span class="meta">Academic Journey</span>
 							<h3>Year 1 to Year 3 Coursework</h3>
 							<p>My portfolio includes programming, database design, system development, object-oriented programming, application development, high performance data processing, and industry-oriented data engineering projects.</p>
@@ -726,12 +746,12 @@
 
 			<section id="skills" class="section">
 				<div class="container">
-					<div class="section-head">
+					<div class="section-head reveal">
 						<p class="kicker">Technical Skills</p>
 						<h2>Technical strengths developed through coursework.</h2>
 					</div>
 					<div class="grid three">
-						<article class="card lavender">
+						<article class="card lavender reveal">
 							<span class="meta">Data</span>
 							<h3>Engineering Tools</h3>
 							<ul class="skill-list">
@@ -742,7 +762,7 @@
 								<li>Data Warehousing</li>
 							</ul>
 						</article>
-						<article class="card blue">
+						<article class="card blue reveal">
 							<span class="meta">Programming</span>
 							<h3>Development Practice</h3>
 							<ul class="skill-list">
@@ -753,7 +773,7 @@
 								<li>Documentation</li>
 							</ul>
 						</article>
-						<article class="card mint">
+						<article class="card mint reveal">
 							<span class="meta">Analytics</span>
 							<h3>Communication and Insight</h3>
 							<ul class="skill-list">
@@ -770,13 +790,13 @@
 
 			<section id="projects" class="section">
 				<div class="container">
-					<div class="section-head">
+					<div class="section-head reveal">
 						<p class="kicker">Featured Projects</p>
 						<h2>Selected work from Year 1 to Year 3.</h2>
 						<p>These featured projects show my growth from programming fundamentals to database design, web systems, mobile application development, analytics, and data engineering solutions.</p>
 					</div>
 					<div class="grid two">
-						<article class="card lavender">
+						<article class="card lavender reveal">
 							<span class="meta">Year 3 - Application Development</span>
 							<h3>TVETMARA Student Attendance Management System</h3>
 							<p>Developed a mobile attendance management application using Flutter and Firebase concepts, covering attendance recording, discipline reporting, timetable management, and user management.</p>
@@ -785,7 +805,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/APPLICATION%20DEVELOPMENT">Course Folder</a></li>
 							</ul>
 						</article>
-						<article class="card pink">
+						<article class="card pink reveal">
 							<span class="meta">Year 2 - System Development</span>
 							<h3>KADA eServe</h3>
 							<p>Built a cooperative member and loan management web system with registration, application status, reporting, financial statements, and admin management modules.</p>
@@ -794,7 +814,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/SYSTEM%20DEVELOPMENT%20TECHNOLOGY/KADA%20Project/Code">Source Code</a></li>
 							</ul>
 						</article>
-						<article class="card blue">
+						<article class="card blue reveal">
 							<span class="meta">Year 3 - Special Topic</span>
 							<h3>PPG Recoverable Assets and Inventory Risk Management</h3>
 							<p>Designed analytics outputs for inventory health, shortage monitoring, recoverable assets, and operational risk using data modelling and dashboard-ready structures.</p>
@@ -803,7 +823,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/SPECIAL%20TOPIC%20IN%20DATA%20ENGINEERING/Assignment/PPG%20Project">Project Folder</a></li>
 							</ul>
 						</article>
-						<article class="card mint">
+						<article class="card mint reveal">
 							<span class="meta">Year 2 - Database</span>
 							<h3>Technicrab Database Design</h3>
 							<p>Completed database project documentation including proposal, ERD, conceptual design, and logical design to strengthen data modelling and normalization skills.</p>
@@ -812,7 +832,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202/Sem%201/DATABASE%20(WBL)">Course Folder</a></li>
 							</ul>
 						</article>
-						<article class="card cream">
+						<article class="card cream reveal">
 							<span class="meta">Year 3 - High Performance Data Processing</span>
 							<h3>Data Processing Optimization Project</h3>
 							<p>Processed and optimized larger datasets through notebooks for crawling, cleaning, and pipeline optimization, with attention to performance and scalability.</p>
@@ -821,7 +841,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203/Sem%202/HIGH%20PERFORMANCE%20DATA%20PROCESSING">Course Folder</a></li>
 							</ul>
 						</article>
-						<article class="card lavender">
+						<article class="card lavender reveal">
 							<span class="meta">Year 1 - Programming Foundation</span>
 							<h3>Programming Technique I Assignments</h3>
 							<p>Built foundational programming skills through C++ assignments, lab exercises, arrays, functions, file operations, and structured problem-solving practice.</p>
@@ -836,13 +856,13 @@
 
 			<section id="coursework" class="section">
 				<div class="container">
-					<div class="section-head">
+					<div class="section-head reveal">
 						<p class="kicker">Coursework Portfolio</p>
 						<h2>Selected academic work.</h2>
 						<p>These links connect the e-portfolio to my GitHub coursework archive so evidence from each academic year remains easy to access and review.</p>
 					</div>
 					<div class="grid three">
-						<article class="card blue">
+						<article class="card blue reveal">
 							<span class="meta">Year 1</span>
 							<h3>Foundation Coursework</h3>
 							<p>Programming Technique I, Discrete Structure, Digital Logic, and Technology and Information System built my foundation in computing and problem solving.</p>
@@ -850,7 +870,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%201">View Year 1</a></li>
 							</ul>
 						</article>
-						<article class="card mint">
+						<article class="card mint reveal">
 							<span class="meta">Year 2</span>
 							<h3>Software and Systems Coursework</h3>
 							<p>Database, software engineering, system development, data structures, networking, object-oriented programming, and operating systems expanded my technical range.</p>
@@ -858,7 +878,7 @@
 								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202">View Year 2</a></li>
 							</ul>
 						</article>
-						<article class="card cream">
+						<article class="card cream reveal">
 							<span class="meta">Year 3</span>
 							<h3>Data Engineering Coursework</h3>
 							<p>Business intelligence, high performance data processing, application development, and special topic projects strengthened my data engineering portfolio.</p>
@@ -873,12 +893,12 @@
 
 		<section id="contact" class="contact">
 			<div class="container">
-				<div class="section-head">
+				<div class="section-head reveal">
 					<p class="kicker">Contact</p>
 					<h2>Get in touch.</h2>
 					<p>Open to academic collaboration, internship opportunities, and data engineering learning discussions.</p>
 				</div>
-				<div class="actions">
+				<div class="actions reveal">
 					<a class="button primary" href="mailto:lauyeewen@graduate.utm.my"><i class="fas fa-envelope"></i> Email</a>
 					<a class="button secondary" href="https://github.com/lauyeewen123"><i class="fab fa-github"></i> GitHub</a>
 					<a class="button secondary" href="https://www.facebook.com/yeewen.lau.1"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -921,6 +941,31 @@
 					window.setTimeout(function() {
 						animatedName.classList.remove("is-dancing");
 					}, 1300);
+				});
+			}
+
+			var revealItems = document.querySelectorAll(".reveal");
+
+			if ("IntersectionObserver" in window) {
+				var revealObserver = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("active");
+						} else {
+							entry.target.classList.remove("active");
+						}
+					});
+				}, {
+					threshold: 0.12,
+					rootMargin: "0px 0px -8% 0px"
+				});
+
+				revealItems.forEach(function(item) {
+					revealObserver.observe(item);
+				});
+			} else {
+				revealItems.forEach(function(item) {
+					item.classList.add("active");
 				});
 			}
 		</script>
