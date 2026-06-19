@@ -398,18 +398,46 @@
 				background: rgba(255, 255, 255, 0.78);
 				border: 1px solid rgba(234, 223, 236, 0.9);
 				border-radius: 20px;
-				box-shadow: var(--shadow);
-				max-width: 980px;
-				padding: clamp(1.3rem, 3vw, 2rem);
+				box-shadow: 0 14px 34px rgba(92, 87, 128, 0.1);
+				max-width: 920px;
+				padding: clamp(1.25rem, 3vw, 1.75rem);
 			}
 
 			.about-card p {
-				color: var(--muted);
-				margin: 0 0 1rem;
+				color: #3f485f;
+				font-size: clamp(1.08rem, 2vw, 1.2rem);
+				font-weight: 500;
+				line-height: 1.85;
+				margin: 0 0 0.85rem;
 			}
 
 			.about-card p:last-child {
 				margin-bottom: 0;
+			}
+
+			.hobby-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+				list-style: none;
+				margin: 1.1rem 0 0;
+				padding: 0;
+			}
+
+			.hobby-list li {
+				background: linear-gradient(135deg, rgba(247, 241, 255, 0.95), rgba(237, 249, 255, 0.95));
+				border: 1px solid rgba(124, 143, 214, 0.16);
+				border-radius: 999px;
+				color: #3f485f;
+				font-size: 0.96rem;
+				font-weight: 700;
+				padding: 0.45rem 0.8rem;
+				transition: background 180ms ease, transform 180ms ease;
+			}
+
+			.hobby-list li:hover {
+				background: linear-gradient(135deg, rgba(255, 232, 239, 0.95), rgba(233, 255, 246, 0.95));
+				transform: translateY(-2px);
 			}
 
 			.grid {
@@ -662,10 +690,15 @@
 						<h2>A little more about who I am.</h2>
 					</div>
 					<article class="about-card">
-						<p>Hi! I'm Lau Yee Wen, a Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia (UTM).</p>
-						<p>I am passionate about technology, data, and problem-solving. Throughout my university journey, I have been involved in various projects related to software development, data engineering, business intelligence, and analytics, allowing me to continuously expand my technical skills and knowledge.</p>
-						<p>Outside of academics, I enjoy scuba diving, watching dramas, and reading novels. Scuba diving is one of my favorite hobbies as it allows me to explore the underwater world, appreciate marine life, and step outside my comfort zone. I believe these experiences help me stay curious, open-minded, and adaptable--qualities that are equally valuable in both life and technology.</p>
-						<p>This e-portfolio showcases my academic journey, projects, achievements, and experiences throughout my years at UTM.</p>
+						<p>Hi! I'm Lau Yee Wen, a Bachelor of Computer Science (Data Engineering) student at Universiti Teknologi Malaysia (UTM). I am passionate about technology, data, and problem-solving, especially through hands-on projects in software development, data engineering, business intelligence, and analytics.</p>
+						<p>Outside of academics, I enjoy scuba diving, watching dramas, and reading novels. These hobbies keep me curious, open-minded, and adaptable, which are qualities I also value in technology and learning.</p>
+						<ul class="hobby-list" aria-label="Interests and hobbies">
+							<li>🐠 Scuba Diving</li>
+							<li>📖 Reading Novels</li>
+							<li>🎭 Watching Dramas</li>
+							<li>💻 Technology</li>
+							<li>📊 Data Analytics</li>
+						</ul>
 					</article>
 				</div>
 			</section>
