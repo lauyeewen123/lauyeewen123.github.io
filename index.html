@@ -679,6 +679,72 @@
 				transform: translateY(-2px);
 			}
 
+			/* Coursework and certifications: compact cards that point recruiters to evidence quickly. */
+			.course-card,
+			.cert-card {
+				align-items: flex-start;
+				display: flex;
+				flex-direction: column;
+				gap: 0.85rem;
+			}
+
+			.course-card h3,
+			.cert-card h3 {
+				margin-bottom: 0;
+			}
+
+			.course-link {
+				align-items: center;
+				background: linear-gradient(135deg, #fff7fb, #eef6ff);
+				border: 1px solid rgba(124, 143, 214, 0.16);
+				border-radius: 999px;
+				color: #3f485f;
+				display: inline-flex;
+				font-size: 0.82rem;
+				font-weight: 900;
+				gap: 0.42rem;
+				margin-top: auto;
+				padding: 0.52rem 0.78rem;
+				text-transform: uppercase;
+				transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+			}
+
+			.course-link:hover {
+				border-color: rgba(244, 167, 187, 0.42);
+				color: var(--accent-dark);
+				transform: translateY(-2px);
+			}
+
+			.cert-icon {
+				align-items: center;
+				background: linear-gradient(135deg, #fff1f6, #edf9ff);
+				border: 1px solid rgba(124, 143, 214, 0.14);
+				border-radius: 16px;
+				box-shadow: 0 10px 24px rgba(92, 87, 128, 0.08);
+				display: inline-flex;
+				font-size: 1.55rem;
+				height: 3.25rem;
+				justify-content: center;
+				width: 3.25rem;
+			}
+
+			.cert-card p {
+				color: var(--muted);
+				margin: 0;
+			}
+
+			.cert-aws {
+				color: #ff9900;
+			}
+
+			.cert-azure {
+				color: #0078d4;
+			}
+
+			.cert-alteryx {
+				color: #1768ac;
+			}
+
 			/* Tech stack section: compact icon cards inspired by modern developer portfolios. */
 			.skill-showcase {
 				display: grid;
@@ -899,6 +965,7 @@
 					<li><a href="#skills">Skills</a></li>
 					<li><a href="#projects">Projects</a></li>
 					<li><a href="#coursework">Coursework</a></li>
+					<li><a href="#certifications">Certifications</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -1201,33 +1268,54 @@
 				<div class="container">
 					<div class="section-head reveal">
 						<p class="kicker">Coursework Portfolio</p>
-						<h2>Selected academic work.</h2>
-						<p>These links connect the e-portfolio to my GitHub coursework archive so evidence from each academic year remains easy to access and review.</p>
+						<h2>Coursework Portfolio</h2>
+						<p>Explore my complete academic coursework archive on GitHub.</p>
 					</div>
 					<div class="grid three">
-						<article class="card blue reveal">
+						<article class="card blue course-card reveal">
 							<span class="meta">Year 1</span>
-							<h3>Foundation Coursework</h3>
-							<p>Programming Technique I, Discrete Structure, Digital Logic, and Technology and Information System built my foundation in computing and problem solving.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%201">View Year 1</a></li>
-							</ul>
+							<h3>Year 1</h3>
+							<a class="course-link" href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%201">View Coursework <i class="fas fa-arrow-right"></i></a>
 						</article>
-						<article class="card mint reveal">
+						<article class="card mint course-card reveal">
 							<span class="meta">Year 2</span>
-							<h3>Software and Systems Coursework</h3>
-							<p>Database, software engineering, system development, data structures, networking, object-oriented programming, and operating systems expanded my technical range.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202">View Year 2</a></li>
-							</ul>
+							<h3>Year 2</h3>
+							<a class="course-link" href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%202">View Coursework <i class="fas fa-arrow-right"></i></a>
 						</article>
-						<article class="card cream reveal">
+						<article class="card cream course-card reveal">
 							<span class="meta">Year 3</span>
-							<h3>Data Engineering Coursework</h3>
-							<p>Business intelligence, high performance data processing, application development, and special topic projects strengthened my data engineering portfolio.</p>
-							<ul class="link-list">
-								<li><a href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203">View Year 3</a></li>
-							</ul>
+							<h3>Year 3</h3>
+							<a class="course-link" href="https://github.com/lauyeewen123/UTM_CourseWork/tree/main/Year%203">View Coursework <i class="fas fa-arrow-right"></i></a>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="certifications" class="section">
+				<div class="container">
+					<div class="section-head reveal">
+						<p class="kicker">Professional Development</p>
+						<h2>Certifications &amp; Professional Development</h2>
+						<p>Certifications, training programs, and learning achievements that support my growth as a Data Engineering student.</p>
+					</div>
+					<div class="grid three">
+						<article class="card cream cert-card reveal">
+							<span class="cert-icon cert-aws"><i class="fab fa-aws" aria-hidden="true"></i></span>
+							<span class="meta">Cloud Foundations</span>
+							<h3>AWS Academy Graduate - Cloud Foundations</h3>
+							<p>Cloud computing fundamentals, AWS services, architecture basics, security, and cloud deployment concepts.</p>
+						</article>
+						<article class="card blue cert-card reveal">
+							<span class="cert-icon cert-azure"><i class="devicon-azure-plain colored" aria-hidden="true"></i></span>
+							<span class="meta">Data Fundamentals</span>
+							<h3>Microsoft Certified: Azure Data Fundamentals (DP-900)</h3>
+							<p>Core data concepts, relational and non-relational data, analytics workloads, and Azure data services.</p>
+						</article>
+						<article class="card lavender cert-card reveal">
+							<span class="cert-icon cert-alteryx"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
+							<span class="meta">Analytics Workflow</span>
+							<h3>Alteryx Designer Core Certification</h3>
+							<p>Data preparation, blending, transformation, and workflow design for analytical problem solving.</p>
 						</article>
 					</div>
 				</div>
