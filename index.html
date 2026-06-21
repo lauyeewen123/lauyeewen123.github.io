@@ -405,16 +405,19 @@
 
 			/* About section: compact personal overview without repeating the hero portrait. */
 			.about-layout {
-				align-items: stretch;
-				background: rgba(255, 255, 255, 0.56);
-				border: 1px solid rgba(234, 223, 236, 0.78);
-				border-radius: 20px;
-				box-shadow: 0 14px 34px rgba(92, 87, 128, 0.08);
+				align-items: start;
 				display: grid;
-				gap: clamp(0.85rem, 2.4vw, 1.35rem);
-				grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-				max-width: 920px;
-				padding: clamp(0.95rem, 2.2vw, 1.2rem);
+				gap: clamp(1rem, 3vw, 2rem);
+				grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+				max-width: 940px;
+			}
+
+			#about .section-head {
+				margin-bottom: 1.45rem;
+			}
+
+			#about .section-head h2 {
+				font-size: clamp(1.65rem, 3vw, 2.25rem);
 			}
 
 			.about-content {
@@ -423,32 +426,33 @@
 
 			.about-copy {
 				display: grid;
-				gap: 0.55rem;
+				gap: 0.6rem;
+				max-width: 620px;
 			}
 
 			.about-copy p {
 				color: #3f485f;
-				font-size: 0.96rem;
+				font-size: 1rem;
 				font-weight: 500;
-				line-height: 1.58;
+				line-height: 1.62;
 				margin: 0;
 			}
 
 			.about-info-grid {
 				display: grid;
-				gap: 0.65rem;
+				gap: 0.55rem;
 				grid-template-columns: 1fr;
 			}
 
 			.about-info-card {
-				align-items: flex-start;
-				background: rgba(255, 255, 255, 0.7);
+				align-items: center;
+				background: linear-gradient(135deg, rgba(255, 247, 251, 0.78), rgba(241, 248, 255, 0.78));
 				border: 1px solid rgba(124, 143, 214, 0.14);
-				border-radius: 14px;
-				box-shadow: 0 8px 18px rgba(92, 87, 128, 0.06);
+				border-radius: 999px;
+				box-shadow: 0 8px 18px rgba(92, 87, 128, 0.05);
 				display: flex;
-				gap: 0.58rem;
-				padding: 0.62rem 0.75rem;
+				gap: 0.5rem;
+				padding: 0.48rem 0.7rem;
 				transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 			}
 
@@ -459,13 +463,13 @@
 			}
 
 			.about-info-icon {
-				font-size: 1.15rem;
+				font-size: 1rem;
 				line-height: 1.2;
 			}
 
 			.about-info-card span:last-child {
 				color: #3f485f;
-				font-size: 0.84rem;
+				font-size: 0.8rem;
 				font-weight: 800;
 				line-height: 1.35;
 			}
@@ -1017,8 +1021,7 @@
 						<div class="about-content reveal">
 							<div class="about-copy">
 								<p>Hi! I'm Yee Wen, a Data Engineering student who enjoys learning through practical projects.</p>
-								<p>My work includes software applications, analytics dashboards, and data processing solutions built through coursework and team projects.</p>
-								<p>Beyond technology, I enjoy scuba diving, reading novels, and watching dramas. These hobbies keep me curious, balanced, and open to new experiences.</p>
+								<p>My work spans software applications, analytics dashboards, and data processing solutions. Outside technology, I enjoy scuba diving, reading novels, and watching dramas.</p>
 							</div>
 						</div>
 						<div class="about-info-grid reveal">
@@ -1036,7 +1039,7 @@
 							</div>
 							<div class="about-info-card">
 								<span class="about-info-icon">🤿</span>
-								<span>Hobby: Scuba Diving</span>
+								<span>Interest: Scuba Diving</span>
 							</div>
 						</div>
 					</div>
